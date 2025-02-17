@@ -28,4 +28,10 @@ class VeiculoController(
         val veiculo = veiculoService.getByPlaca(placa)
         return ResponseEntity.ok(veiculo)
     }
+
+    @GetMapping
+    fun listarVeiculos(): ResponseEntity<List<Veiculo>> {
+        val veiculos = veiculoService.getAll()
+        return ResponseEntity.ok(veiculos)
+    }
 }

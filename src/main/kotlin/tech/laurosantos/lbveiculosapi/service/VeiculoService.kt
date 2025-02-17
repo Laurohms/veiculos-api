@@ -27,4 +27,12 @@ class VeiculoService(
         return veiculoRepository.findById(placa.uppercase())
             .orElseThrow { throw VehicleNotFoundException(placa) }
     }
+
+    fun getAll(): List<Veiculo>? {
+        val vehicles: List<Veiculo> = veiculoRepository.findAll()
+        if (vehicles.isEmpty()) {
+            throw VehicleNotFoundException("Nenhum veículo encontrado")
+        }
+        return vehicles.toList()
+    }
 }
