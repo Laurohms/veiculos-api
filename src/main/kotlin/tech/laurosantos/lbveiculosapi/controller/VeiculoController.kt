@@ -35,4 +35,10 @@ class VeiculoController(
         val veiculos = veiculoService.getByApartamento(apartamento)
         return ResponseEntity.ok(veiculos)
     }
+
+    @PutMapping("/{placa}")
+    fun atualizarVeiculo(@PathVariable placa: String, @RequestBody veiculo: Veiculo): ResponseEntity<Veiculo> {
+        val updatedVeiculo = veiculoService.update(placa, veiculo)
+        return ResponseEntity.ok(updatedVeiculo)
+    }
 }

@@ -41,4 +41,16 @@ class VeiculoService(
         if (veiculos.isEmpty()) throw VehicleNotFoundException("Nenhum veículo encontrado")
         return veiculos
     }
+
+    fun update(placa: String, veiculo: Veiculo): Veiculo {
+        val veiculoToBeUpdated = getByPlaca(placa)
+        val updatedVeiculo = veiculoToBeUpdated.copy(
+            marca = veiculo.marca,
+            modelo = veiculo.modelo,
+            cor = veiculo.cor,
+            apartamento = veiculo.apartamento,
+            vagaAlugada = veiculo.vagaAlugada
+        )
+        return veiculoRepository.save(updatedVeiculo)
+    }
 }
