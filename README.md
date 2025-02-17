@@ -38,11 +38,11 @@ spring:
 
 1. Clone este repositório:
    ```sh
-   git clone https://github.com/seu-usuario/lb-veiculos-api.git
+   git clone https://github.com/Laurohms/veiculos-api.git
    ```
 2. Acesse o diretório do projeto:
    ```sh
-   cd lb-veiculos-api
+   cd veiculos-api
    ```
 3. Compile e execute a aplicação:
    ```sh
