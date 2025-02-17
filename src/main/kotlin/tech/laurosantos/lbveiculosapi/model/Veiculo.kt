@@ -10,5 +10,5 @@ data class Veiculo(
     val modelo: String?,
     val cor: String?,
     val apartamento: Int,
-    var vagaAlugada: Int?
+    var vagaAlugada: Boolean = false
 )
