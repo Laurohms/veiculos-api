@@ -53,4 +53,9 @@ class VeiculoService(
         )
         return veiculoRepository.save(updatedVeiculo)
     }
+
+    fun delete(placa: String) {
+        val veiculo = getByPlaca(placa)
+        veiculoRepository.delete(veiculo)
+    }
 }

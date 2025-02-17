@@ -41,4 +41,10 @@ class VeiculoController(
         val updatedVeiculo = veiculoService.update(placa, veiculo)
         return ResponseEntity.ok(updatedVeiculo)
     }
+
+    @DeleteMapping("/{placa}")
+    fun deletarVeiculo(@PathVariable placa: String): ResponseEntity<Unit> {
+        veiculoService.delete(placa)
+        return ResponseEntity.noContent().build()
+    }
 }
