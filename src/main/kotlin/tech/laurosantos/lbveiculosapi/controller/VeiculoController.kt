@@ -2,12 +2,7 @@ package tech.laurosantos.lbveiculosapi.controller
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import tech.laurosantos.lbveiculosapi.model.Veiculo
 import tech.laurosantos.lbveiculosapi.service.VeiculoService
 
@@ -32,6 +27,12 @@ class VeiculoController(
     @GetMapping
     fun listarVeiculos(): ResponseEntity<List<Veiculo>> {
         val veiculos = veiculoService.getAll()
+        return ResponseEntity.ok(veiculos)
+    }
+
+    @GetMapping("/apartamento/{apartamento}")
+    fun buscarPorApartamento(@PathVariable apartamento: Int): ResponseEntity<List<Veiculo>> {
+        val veiculos = veiculoService.getByApartamento(apartamento)
         return ResponseEntity.ok(veiculos)
     }
 }

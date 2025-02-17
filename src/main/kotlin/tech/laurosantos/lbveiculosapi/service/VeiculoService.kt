@@ -35,4 +35,10 @@ class VeiculoService(
         }
         return vehicles.toList()
     }
+
+    fun getByApartamento(apartamento: Int): List<Veiculo> {
+        val veiculos = veiculoRepository.findAllByApartamento(apartamento).toList()
+        if (veiculos.isEmpty()) throw VehicleNotFoundException("Nenhum veículo encontrado")
+        return veiculos
+    }
 }
